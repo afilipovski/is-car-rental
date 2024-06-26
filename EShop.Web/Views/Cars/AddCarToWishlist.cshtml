@@ -1,0 +1,29 @@
+﻿@model CarRental.Domain.DTO.AddToWishlistDTO
+
+<div class="container">
+    <form method="post" asp-action="AddCarToWishlist">
+
+        <input type="hidden" asp-for="SelectedCarId" value="@Model.SelectedCarId" class="form-control" />
+
+        <div class="row mt-4">
+            <div class="form-group">
+                <label asp-for="SelectedCarModel" class="control-label"></label>
+                <input asp-for="SelectedCarModel" class="form-control" />
+                <span asp-validation-for="SelectedCarModel" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="form-group">
+                <label asp-for="Days" class="control-label"></label>
+                <input asp-for="Days" type="number" class="form-control" />
+                <span asp-validation-for="Days" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <button type="submit" class="btn btn-success">Add To Wishlist</button>
+        </div>
+    </form>
+
+</div>

@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EShop.Domain\CarRental.Domain.csproj" />
-    <ProjectReference Include="..\EShop.Repository\CarRental.Repository.csproj" />
+    <ProjectReference Include="..\CarRental.Domain\CarRental.Domain.csproj" />
+    <ProjectReference Include="..\CarRental.Repository\CarRental.Repository.csproj" />
   </ItemGroup>
 
 </Project>

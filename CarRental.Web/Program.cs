@@ -23,6 +23,7 @@ builder.Services.AddScoped(typeof(ICustomerRepository), typeof(CustomerRepositor
 
 builder.Services.AddTransient<ICarService, ProductService>();
 builder.Services.AddTransient<IWishlistService, WishlistService>();
+builder.Services.AddTransient<IRentalService, RentalService>();
 
 var app = builder.Build();
 

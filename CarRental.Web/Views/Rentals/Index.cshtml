@@ -25,16 +25,21 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.CustomerId)
+                @(item.Customer.FirstName + " " + item.Customer.LastName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Id)
             </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
+            @{
+                var str = "";
+                foreach (CarInRental cir in item.CarsInRental)
+                {
+                    str += cir.RentedCar.CarModel+"; ";
+                }
+                <td>
+                    @str
+                </td>
+            }
         </tr>
 }
     </tbody>

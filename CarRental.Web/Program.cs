@@ -20,6 +20,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped(typeof(ICustomerRepository), typeof(CustomerRepository));
+builder.Services.AddScoped(typeof(IRentalRepository), typeof(RentalRepository));
 
 builder.Services.AddTransient<ICarService, ProductService>();
 builder.Services.AddTransient<IWishlistService, WishlistService>();

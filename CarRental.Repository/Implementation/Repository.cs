@@ -61,15 +61,15 @@ namespace CarRental.Repository.Implementation
             return entity;
         }
 
-        public List<T> InsertMany(List<T> entities)
+        public List<T> InsertMany(List<T> entitiesLocal)
         {
             if (entities == null)
             {
                 throw new ArgumentNullException("entities");
             }
-            entities.AddRange(entities);
+            entities.AddRange(entitiesLocal);
             context.SaveChanges();
-            return entities;
+            return entities.ToList();
         }
     }
 }

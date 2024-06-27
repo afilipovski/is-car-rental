@@ -11,9 +11,9 @@ namespace CarRental.Service.Implementation
 {
     public class RentalService : IRentalService
     {
-        private readonly IRepository<Rental> _repository;
+        private readonly IRentalRepository _repository;
 
-        public RentalService(IRepository<Rental> repository)
+        public RentalService(IRentalRepository repository)
         {
             _repository = repository;
         }

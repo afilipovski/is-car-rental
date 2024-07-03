@@ -1,0 +1,50 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+<div style="display:flex; justify-content:center; align-items:center; padding:4px; height:70vh;">
+    <form id="account" method="post">
+        <h2 style="color:#FFA500; font-weight:bold; font-size:2.5rem; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Use a local account to log in</h2>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+
+        <div class="form-floating mb-3">
+            <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" style="height:30px;" />
+            <label asp-for="Input.Email" class="input-label">Email</label>
+            <span asp-validation-for="Input.Email" style="font-size:0.8rem" class="text-danger"></span>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="Password" style="height:30px;" />
+            <label asp-for="Input.Password" class="input-label">Password</label>
+            <span asp-validation-for="Input.Password" class="text-danger"></span>
+        </div>
+        <div class="checkbox mb-3">
+            <label asp-for="Input.RememberMe" class="form-label">
+                <input class="form-check-input" asp-for="Input.RememberMe" />
+                @Html.DisplayNameFor(m => m.Input.RememberMe)
+            </label>
+        </div>
+        <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-success" style="background-color: #FFA500; border-color: #FFA500; font-weight:bold; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Log in</button>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+<style>
+    .form-floating .form-control {
+        height: 30px !important;
+        padding: 5px 12px !important;
+    }
+
+    .form-floating .input-label {
+        font-size: 0.8rem;
+        padding-top: 0.5rem;
+        padding-left: 12px;
+        height: 30px;
+        line-height: 1.2;
+    }
+</style>

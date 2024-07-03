@@ -5,6 +5,7 @@ using CarRental.Service.Interface;
 using CarRental.Service.Implementation;
 using CarRental.Repository.Implementation;
 using CarRental.Repository.Interface;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 

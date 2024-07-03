@@ -7,42 +7,185 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/CarRental.Web.styles.css" asp-append-version="true" />
-</head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">CarRental.Web</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Cars" asp-action="Index">Cars</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Wishlists" asp-action="Index">Shopping Cart</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Rentals" asp-action="Index">Rentals</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container-fluid">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            background: url('/images/background2.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        :root {
+            --primary-color: #ff9800;
+            --secondary-color: #000000; 
+            --hover-color: #ffcc80; 
+        }
 
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .table {
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: collapse;
+        }
+
+            .table th, .table td {
+                border: 1px solid var(--secondary-color);
+                padding: 12px;
+                text-align: left;
+            }
+
+            .table th {
+                background-color: var(--secondary-color);
+                color: white;
+            }
+
+            .table tbody tr {
+                background-color: #f2f2f2;
+            }
+
+            .table tbody tr:hover {
+                background-color: var(--hover-color);
+            }
+
+            .table tfoot th {
+                text-align: right;
+                padding-right: 20px;
+            }
+
+     
+
+            .btn-success:hover {
+                background-color: var(--hover-color);
+                border-color: var(--hover-color);
+                color: var(--secondary-color);
+            }
+
+        .btn-danger {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            color: white;
+        }
+
+            .btn-danger:hover {
+                background-color: #333333; /* Darker black */
+                border-color: #333333;
+                color: white;
+            }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .bodies {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .navbar-custom {
+            background-color: #333;
+            flex-shrink: 0;
+        }
+
+            .navbar-custom .navbar-brand,
+            .navbar-custom .navbar-nav .nav-link,
+            .navbar-custom .navbar-toggler-icon,
+            .navbar-custom .navbar-toggler {
+                color: #FF8C00;
+            }
+
+                .navbar-custom .navbar-nav .nav-link:hover {
+                    color: #FFA500;
+                }
+
+            .navbar-custom .navbar-toggler {
+                border-color: #FF8C00;
+            }
+
+        .fullscreen-bg {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            overflow: auto;
+            flex: 1 0 auto;
+        }
+
+        .fullscreen-cars2 {
+            color: #FF8C00;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            overflow: auto;
+            font-weight: bold;
+        }
+
+        .fullscreen-cars {
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            overflow: auto;
+            font-weight: bold;
+        }
+
+            .fullscreen-cars::-webkit-scrollbar {
+                width: 0;
+                background: transparent;
+            }
+
+        footer {
+            background-color: #333;
+            color: #FF8C00;
+            flex-shrink: 0;
+        }
+
+            footer a {
+                color: #FF8C00;
+            }
+
+                footer a:hover {
+                    color: #FFA500;
+                }
+
+        .welcome {
+            display: flex;
+            flex-direction: column;
+            width: 37vw;
+            padding: 3px;
+        }
+    </style>
+</head>
+<body class="overflow-hidden bodies">
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark navbar-custom border-bottom box-shadow">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">CarRental</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Cars" asp-action="Index">Cars</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Wishlists" asp-action="Index">Shopping Cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Rentals" asp-action="Index">Rentals</a>
+                    </li>
+                </ul>
+                <partial name="_LoginPartial" />
+            </div>
+        </div>
+    </nav>
+    @RenderBody()
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2024 - CarRental.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>

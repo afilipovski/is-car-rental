@@ -1,6 +1,6 @@
 ﻿@model CarRental.Domain.DTO.AddToWishlistDTO
 
-<div class="container">
+<div class="container" style="font-weight:bold; color:#FFA500">
     <form method="post" asp-action="AddCarToWishlist">
 
         <input type="hidden" asp-for="SelectedCarId" value="@Model.SelectedCarId" class="form-control" />
@@ -22,7 +22,7 @@
         </div>
 
         <div class="row mt-4">
-            <button type="submit" class="btn btn-success">Add To Wishlist</button>
+            <button type="submit" class="btn btn-success" style="background-color: #FFA500; border-color: #FFA500;">Add To Wishlist</button>
         </div>
     </form>
 

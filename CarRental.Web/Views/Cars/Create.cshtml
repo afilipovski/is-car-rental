@@ -4,51 +4,57 @@
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="fullscreen-cars p-4 ">
 
-<h1>Create</h1>
 
-<h4>Product</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="CarModel" class="control-label"></label>
-                <input asp-for="CarModel" class="form-control" />
-                <span asp-validation-for="CarModel" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CarManufacturer" class="control-label"></label>
-                <input asp-for="CarManufacturer" class="form-control" />
-                <span asp-validation-for="CarManufacturer" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CarImage" class="control-label"></label>
-                <input asp-for="CarImage" class="form-control" />
-                <span asp-validation-for="CarImage" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
-                <span asp-validation-for="Price" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Rating" class="control-label"></label>
-                <input asp-for="Rating" class="form-control" />
-                <span asp-validation-for="Rating" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+
+    <h1 style="color:#FFA500">Create</h1>
+
+    <h4 style="color:#FFA500">Product</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="CarModel" style="color:#FFA500; font-weight:bold" class="control-label"></label>
+                    <input asp-for="CarModel" class="form-control" />
+                    <span asp-validation-for="CarModel" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CarManufacturer" style="color:#FFA500; font-weight:bold" class="control-label"></label>
+                    <input asp-for="CarManufacturer" class="form-control" />
+                    <span asp-validation-for="CarManufacturer" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CarImage" style="color:#FFA500; font-weight:bold" class="control-label"></label>
+                    <input asp-for="CarImage" class="form-control" />
+                    <span asp-validation-for="CarImage" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Price" style="color:#FFA500; font-weight:bold" class="control-label"></label>
+                    <input asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Rating" style="color:#FFA500; font-weight:bold" class="control-label"></label>
+                    <input asp-for="Rating" class="form-control" />
+                    <span asp-validation-for="Rating" class="text-danger"></span>
+                </div>
+                <div class="form-group p-2">
+                    <input type="submit" value="Create" class="btn btn-success" style="background-color: #FFA500; border-color: #FFA500;" />
+                    <a asp-action="Index" class="btn btn-success" style="background-color: #FFA500; border-color: #FFA500;">
+                        Back to List
+                    </a>
+                </div>
+
+
+            </form>
+        </div>
     </div>
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

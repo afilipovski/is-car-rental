@@ -132,31 +132,35 @@ namespace CarRental.Service.Implementation
 
                 var customerWishlist = loggedInCustomer?.Wishlist;
 
-                var customerRental = new Rental
+                if (customerWishlist.CarsInWishlist.Count != 0)
                 {
-                    Id = Guid.NewGuid(),
-                    CustomerId = userId,
-                    Customer = loggedInCustomer
-                };
 
-                _rentalRepository.Insert(customerRental);
+                    var customerRental = new Rental
+                    {
+                        Id = Guid.NewGuid(),
+                        CustomerId = userId,
+                        Customer = loggedInCustomer
+                    };
 
-                var carsInRental = customerWishlist?.CarsInWishlist.Select(z => new CarInRental
-                {
-                    Rental = customerRental,
-                    RentalId = customerRental.Id,
-                    CarId = z.CarId,
-                    RentedCar = z.Car,
-                    Days = z.Days
-                }).ToList();
+                    _rentalRepository.Insert(customerRental);
 
-                _carInRentalRepository.InsertMany(carsInRental);
+                    var carsInRental = customerWishlist?.CarsInWishlist.Select(z => new CarInRental
+                    {
+                        Rental = customerRental,
+                        RentalId = customerRental.Id,
+                        CarId = z.CarId,
+                        RentedCar = z.Car,
+                        Days = z.Days
+                    }).ToList();
 
-                customerWishlist?.CarsInWishlist.Clear();
+                    _carInRentalRepository.InsertMany(carsInRental);
 
-                _wishlistRepository.Update(customerWishlist);
+                    customerWishlist?.CarsInWishlist.Clear();
 
-                return true;
+                    _wishlistRepository.Update(customerWishlist);
+
+                    return true;
+                }
             }
             return false;
         }

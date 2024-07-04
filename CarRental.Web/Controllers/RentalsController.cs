@@ -44,7 +44,7 @@ namespace CarRental.Web.Controllers
 
                     for (int j = 0; j < order.CarsInRental.Count(); j++)
                     {
-                        worksheet.Cell(1, j + 3).Value = "Product - " + (j + 1);
+                        worksheet.Cell(1, j + 3).Value = "Car - " + (j + 1);
                         worksheet.Cell(i + 2, j + 3).Value = order.CarsInRental.ElementAt(j).RentedCar.CarModel;
 
                     }

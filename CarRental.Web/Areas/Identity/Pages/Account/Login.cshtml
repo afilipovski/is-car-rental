@@ -11,13 +11,13 @@
         <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
 
         <div class="form-floating mb-3">
-            <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" style="height:30px;" />
+            <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" style="height:40px;" />
             <label asp-for="Input.Email" class="input-label">Email</label>
             <span asp-validation-for="Input.Email" style="font-size:0.8rem" class="text-danger"></span>
         </div>
 
         <div class="form-floating mb-3">
-            <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="Password" style="height:30px;" />
+            <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="Password" style="height:40px;" />
             <label asp-for="Input.Password" class="input-label">Password</label>
             <span asp-validation-for="Input.Password" class="text-danger"></span>
         </div>
@@ -36,7 +36,7 @@
 }
 <style>
     .form-floating .form-control {
-        height: 30px !important;
+        height: 40px !important;
         padding: 5px 12px !important;
     }
 

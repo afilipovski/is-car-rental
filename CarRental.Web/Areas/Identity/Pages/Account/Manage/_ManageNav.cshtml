@@ -1,0 +1,36 @@
+﻿@inject SignInManager<CarRental.Domain.Identity.CarRentalCustomer> SignInManager
+@{
+    var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
+}
+
+<style>
+    /* Custom styles for the orange theme */
+    .nav-pills .nav-link {
+        color: #ffffff; /* White text */
+
+    }
+
+        .nav-pills .nav-link:hover {
+            background-color: #ff9800; /* Darker orange on hover */
+            border-color: #ff9800;
+        }
+
+    .nav-pills .nav-item.active .nav-link,
+    .nav-pills .show > .nav-link {
+        background-color: #ff9800;
+        ; /* Lighter orange for active items */
+        border-color: #ff9800;
+    }
+</style>
+
+<ul class="nav nav-pills flex-column">
+    <li class="nav-item"><a class="nav-link @ManageNavPages.IndexNavClass(ViewContext)" id="profile" asp-page="./Index">Profile</a></li>
+    <li class="nav-item"><a class="nav-link @ManageNavPages.EmailNavClass(ViewContext)" id="email" asp-page="./Email">Email</a></li>
+    <li class="nav-item"><a class="nav-link @ManageNavPages.ChangePasswordNavClass(ViewContext)" id="change-password" asp-page="./ChangePassword">Password</a></li>
+    @if (hasExternalLogins)
+    {
+        <li id="external-logins" class="nav-item"><a id="external-login" class="nav-link @ManageNavPages.ExternalLoginsNavClass(ViewContext)" asp-page="./ExternalLogins">External logins</a></li>
+    }
+    <li class="nav-item"><a class="nav-link @ManageNavPages.TwoFactorAuthenticationNavClass(ViewContext)" id="two-factor" asp-page="./TwoFactorAuthentication">Two-factor authentication</a></li>
+    <li class="nav-item"><a class="nav-link @ManageNavPages.PersonalDataNavClass(ViewContext)" id="personal-data" asp-page="./PersonalData">Personal data</a></li>
+</ul>

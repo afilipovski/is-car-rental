@@ -1,0 +1,40 @@
+﻿﻿
+    @model List<CarRental.Domain.Domain.Restaurants>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<h1 style="font-weight:bold; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); margin-left:8px">Restaurants</h1>
+
+
+<div class="container-fluid fullscreen-cars p-4">
+
+
+    @for (int i = 0; i < Model.Count(); i++)
+    {
+        var item = Model[i];
+
+        if (i % 3 == 0)
+        {
+           @: <div class="row mt-3" style="justify-content:center;">
+        }
+
+        <div class="col-md-3 m-3">
+
+            <div class="card" style="background-color:#FFA500">
+                <img class="card-img-top" src="@item.Image" alt="Restaurant Image">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Name</h5>
+                    <p class="card-text">@item.Location</p>
+                </div>
+            </div>
+
+        </div>
+
+        @if (i % 3 == 2 || i == Model.Count - 1)
+        {
+            @: </div>
+        }
+
+    }
+</div>

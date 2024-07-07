@@ -14,14 +14,14 @@ namespace CarRental.Web.Controllers
         }
 
         /*public IActionResult Index()
-{
-   HttpClient client = new HttpClient();
-   string URL = "https://integriraniproject.azurewebsites.net/api/Admin/GetAllRestaurants";
+        {
+            HttpClient client = new HttpClient();
+            string URL = "https://integriraniproject.azurewebsites.net/api/Admin/GetAllRestaurants";
 
-   HttpResponseMessage response = client.GetAsync(URL).Result;
-   var data = response.Content.ReadAsAsync<List<Restaurants>>().Result;
-   return View(data);
-}*/
+            HttpResponseMessage response = client.GetAsync(URL).Result;
+            var data = response.Content.ReadAsAsync<List<Restaurants>>().Result;
+            return View(data);
+        }*/
         public IActionResult Index()
         {
             var data = _restaurantService.GetAllRestaurants();
